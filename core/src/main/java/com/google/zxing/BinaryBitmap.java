@@ -84,6 +84,7 @@ public final class BinaryBitmap {
     if (matrix == null) {
       matrix = binarizer.getBlackMatrix();
     }
+//    System.out.println(matrix);
     return matrix;
   }
 
@@ -147,4 +148,7 @@ public final class BinaryBitmap {
     }
   }
 
+  public LuminanceSource getLuminanceSource() {
+	  return binarizer.getLuminanceSource();
+  }
 }

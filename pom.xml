@@ -441,33 +441,33 @@
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>3.1.0</version>
-          <configuration>
-            <configLocation>src/checkstyle/checkstyle.xml</configLocation>
-            <!-- Android generated files -->
-            <excludes>**/R.java,**/BuildConfig.java,**/Manifest.java</excludes>
-            <includeTestSourceDirectory>true</includeTestSourceDirectory>
-          </configuration>
-          <executions>
-            <execution>
-              <id>validate</id>
-              <phase>validate</phase>
-              <goals>
-                <goal>check</goal>
-              </goals>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId>com.puppycrawl.tools</groupId>
-              <artifactId>checkstyle</artifactId>
-              <version>8.29</version>
-            </dependency>
-          </dependencies>
-        </plugin>
+<!--         <plugin> -->
+<!--           <groupId>org.apache.maven.plugins</groupId> -->
+<!--           <artifactId>maven-checkstyle-plugin</artifactId> -->
+<!--           <version>3.1.0</version> -->
+<!--           <configuration> -->
+<!--             <configLocation>src/checkstyle/checkstyle.xml</configLocation> -->
+<!--             Android generated files -->
+<!--             <excludes>**/R.java,**/BuildConfig.java,**/Manifest.java</excludes> -->
+<!--             <includeTestSourceDirectory>true</includeTestSourceDirectory> -->
+<!--           </configuration> -->
+<!--           <executions> -->
+<!--             <execution> -->
+<!--               <id>validate</id> -->
+<!--               <phase>validate</phase> -->
+<!--               <goals> -->
+<!--                 <goal>check</goal> -->
+<!--               </goals> -->
+<!--             </execution> -->
+<!--           </executions> -->
+<!--           <dependencies> -->
+<!--             <dependency> -->
+<!--               <groupId>com.puppycrawl.tools</groupId> -->
+<!--               <artifactId>checkstyle</artifactId> -->
+<!--               <version>8.29</version> -->
+<!--             </dependency> -->
+<!--           </dependencies> -->
+<!--         </plugin> -->
         <plugin>
           <groupId>org.apache.rat</groupId>
           <artifactId>apache-rat-plugin</artifactId>

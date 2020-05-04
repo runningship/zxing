@@ -72,7 +72,7 @@ public class Detector {
    * @throws NotFoundException if QR Code cannot be found
    * @throws FormatException if a QR Code cannot be decoded
    */
-  public final DetectorResult detect(Map<DecodeHintType,?> hints) throws NotFoundException, FormatException {
+  public DetectorResult detect(Map<DecodeHintType,?> hints) throws NotFoundException, FormatException {
 
     resultPointCallback = hints == null ? null :
         (ResultPointCallback) hints.get(DecodeHintType.NEED_RESULT_POINT_CALLBACK);
@@ -83,7 +83,7 @@ public class Detector {
     return processFinderPatternInfo(info);
   }
 
-  protected final DetectorResult processFinderPatternInfo(FinderPatternInfo info)
+  protected DetectorResult processFinderPatternInfo(FinderPatternInfo info)
       throws NotFoundException, FormatException {
 
     FinderPattern topLeft = info.getTopLeft();
@@ -141,7 +141,7 @@ public class Detector {
     return new DetectorResult(bits, points);
   }
 
-  private static PerspectiveTransform createTransform(ResultPoint topLeft,
+  protected static PerspectiveTransform createTransform(ResultPoint topLeft,
                                                       ResultPoint topRight,
                                                       ResultPoint bottomLeft,
                                                       ResultPoint alignmentPattern,
@@ -183,7 +183,7 @@ public class Detector {
         bottomLeft.getY());
   }
 
-  private static BitMatrix sampleGrid(BitMatrix image,
+  protected BitMatrix sampleGrid(BitMatrix image,
                                       PerspectiveTransform transform,
                                       int dimension) throws NotFoundException {
 
@@ -195,7 +195,7 @@ public class Detector {
    * <p>Computes the dimension (number of modules on a size) of the QR Code based on the position
    * of the finder patterns and estimated module size.</p>
    */
-  private static int computeDimension(ResultPoint topLeft,
+  protected static int computeDimension(ResultPoint topLeft,
                                       ResultPoint topRight,
                                       ResultPoint bottomLeft,
                                       float moduleSize) throws NotFoundException {

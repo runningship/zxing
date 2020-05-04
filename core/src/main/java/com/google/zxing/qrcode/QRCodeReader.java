@@ -43,7 +43,7 @@ import java.util.Map;
  */
 public class QRCodeReader implements Reader {
 
-  private static final ResultPoint[] NO_POINTS = new ResultPoint[0];
+  protected static final ResultPoint[] NO_POINTS = new ResultPoint[0];
 
   private final Decoder decoder = new Decoder();
 
@@ -113,7 +113,7 @@ public class QRCodeReader implements Reader {
    * around it. This is a specialized method that works exceptionally fast in this special
    * case.
    */
-  private static BitMatrix extractPureBits(BitMatrix image) throws NotFoundException {
+  protected static BitMatrix extractPureBits(BitMatrix image) throws NotFoundException {
 
     int[] leftTopBlack = image.getTopLeftOnBit();
     int[] rightBottomBlack = image.getBottomRightOnBit();

@@ -182,4 +182,7 @@ public final class BufferedImageLuminanceSource extends LuminanceSource {
     return new BufferedImageLuminanceSource(rotatedImage, newLeft, newTop, newRight - newLeft, newBottom - newTop);
   }
 
+  public BufferedImage getLuminanceImage() {
+	  return this.image;
+  }
 }

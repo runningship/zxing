@@ -18,7 +18,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <artifactId>core</artifactId>
-  <version>3.4.1-SNAPSHOT</version>
+  <version>3.4.1-colorful-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <dependencies>
