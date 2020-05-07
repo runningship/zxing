@@ -87,7 +87,7 @@
     <proguard.plugin.version>2.2.0</proguard.plugin.version>
     <slf4j.version>1.8.0-beta4</slf4j.version>
     <!-- This can't reference project.version as some subprojects version differently -->
-    <zxing.version>3.4.1-SNAPSHOT</zxing.version>
+    <zxing.version>3.4.1-colorful-SNAPSHOT</zxing.version>
     <android.platform>22</android.platform>
     <maven.scm.version>1.9.5</maven.scm.version>
   </properties>

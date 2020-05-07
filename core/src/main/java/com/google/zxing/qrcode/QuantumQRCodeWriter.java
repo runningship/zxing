@@ -74,6 +74,9 @@ public final class QuantumQRCodeWriter {
     	multiple = 1;
     }
     int quietZone = (int) (input.getWidth()*0.02);
+    if(quietZone==0) {
+    	quietZone = 1;
+    }
     int inputWidth = input.getWidth();
     int inputHeight = input.getHeight();
     int qrWidth = inputWidth + (quietZone * 2);

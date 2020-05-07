@@ -1,0 +1,1 @@
+mvn install -D maven.javadoc.skip=true -Drat.skip=true

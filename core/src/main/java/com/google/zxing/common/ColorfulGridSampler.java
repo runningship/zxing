@@ -1,17 +1,17 @@
 package com.google.zxing.common;
 
-import java.awt.Color;
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.google.zxing.NotFoundException;
+import com.google.zxing.qrcode.ColoredImage;
+import com.google.zxing.qrcode.RGBColor;
 
 public class ColorfulGridSampler extends GridSampler{
 
-	private BufferedImage originalBI;
+	private ColoredImage originalBI;
 	
-	public ColorfulGridSampler(BufferedImage originalBI) {
+	public ColorfulGridSampler(ColoredImage originalBI) {
 		super();
 		this.originalBI = originalBI;
 	}
@@ -74,12 +74,12 @@ public class ColorfulGridSampler extends GridSampler{
 	          
 	          if(isColorful) {
 	        	  //检查原图的rgb值
-		          Color c = new Color(originalBI.getRGB((int) points[x], (int) points[x + 1]));
+	        	  RGBColor c = new RGBColor(originalBI.getRGB((int) points[x], (int) points[x + 1]));
 		          //黑白互换 
 		          if(c.getRed()<127 && c.getGreen()<127 && c.getBlue()<127) {
-		        	  c = Color.WHITE;
+		        	  c = RGBColor.WHITE;
 		          }else if(c.getRed()>=127 && c.getGreen()>=127 && c.getBlue()>=127) {
-		        	  c = Color.BLACK;
+		        	  c = RGBColor.BLACK;
 		          }
 //		          System.out.println("r="+c.getRed()+",g="+c.getGreen()+",b="+c.getBlue()+",at x="+points[x]+",y="+points[x+1]);
 		          if(c.getRed()>=127) {
@@ -133,7 +133,7 @@ public class ColorfulGridSampler extends GridSampler{
 //		      checkAndNudgePoints(image, points);
 		      for (int x = 0; x < max; x += 2) {
 		    	//检查原图的rgb值
-	        	Color c = new Color(originalBI.getRGB((int) points[x], (int) points[x + 1]));
+		    	 RGBColor c = new RGBColor(originalBI.getRGB((int) points[x], (int) points[x + 1]));
 	          	int r = 0,g=0,b=0;
 				if(c.getRed()<127) {
 					r = 0;
@@ -151,7 +151,7 @@ public class ColorfulGridSampler extends GridSampler{
 				}else {
 					b = 255;
 				}
-				originalBI.setRGB(x, y, new Color(r,g,b).getRGB());
+				originalBI.setRGB(x, y, new RGBColor(r,g,b).getRGB());
 				if(!colors.contains(originalBI.getRGB(x, y))) {
 					colors.add(originalBI.getRGB(x, y));
 				}

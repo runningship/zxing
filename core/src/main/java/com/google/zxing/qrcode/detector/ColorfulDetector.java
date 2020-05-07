@@ -1,6 +1,5 @@
 package com.google.zxing.qrcode.detector;
 
-import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.Map;
 
@@ -12,16 +11,16 @@ import com.google.zxing.ResultPointCallback;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.ColorfulDetectorResult;
 import com.google.zxing.common.ColorfulGridSampler;
-import com.google.zxing.common.DetectorResult;
 import com.google.zxing.common.PerspectiveTransform;
 import com.google.zxing.common.detector.MathUtils;
+import com.google.zxing.qrcode.ColoredImage;
 import com.google.zxing.qrcode.decoder.Version;
 
 public class ColorfulDetector extends Detector{
 
-	private BufferedImage originalBI;
+	private ColoredImage originalBI;
 	
-	public ColorfulDetector(BitMatrix image ,BufferedImage originalBI) {
+	public ColorfulDetector(BitMatrix image ,ColoredImage originalBI) {
 		super(image);
 		this.originalBI = originalBI;
 	}

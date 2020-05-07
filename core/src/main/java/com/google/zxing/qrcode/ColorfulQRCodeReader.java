@@ -1,7 +1,5 @@
 package com.google.zxing.qrcode;
 
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,14 +15,12 @@ import com.google.zxing.ResultPoint;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.ColorfulDetectorResult;
 import com.google.zxing.common.DecoderResult;
-import com.google.zxing.common.DetectorResult;
 import com.google.zxing.qrcode.decoder.QRCodeDecoderMetaData;
 import com.google.zxing.qrcode.detector.ColorfulDetector;
-import com.google.zxing.qrcode.detector.Detector;
 
 public class ColorfulQRCodeReader extends QRCodeReader{
 
-	public ColorfulResult decode(BinaryBitmap image, Map<DecodeHintType,?> hints , BufferedImage sourceBI)
+	public ColorfulResult decode(BinaryBitmap image, Map<DecodeHintType,?> hints , ColoredImage sourceBI)
 		      throws NotFoundException, ChecksumException, FormatException {
 	    
 	    ColorfulDetectorResult detectorResult = new ColorfulDetector(image.getBlackMatrix() , sourceBI).detectColorful(hints);
