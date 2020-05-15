@@ -34,13 +34,13 @@ import com.google.zxing.qrcode.encoder.QRCode;
  */
 public final class QuantumQRCodeWriter {
 
-  public BitMatrix encode(String contents, BarcodeFormat format, int multiple)
+  public QRCodeBitMatrix encode(String contents, BarcodeFormat format, int multiple)
       throws WriterException {
 
     return encode(contents, format, multiple, null);
   }
 
-  public BitMatrix encode(String contents,
+  public QRCodeBitMatrix encode(String contents,
                           BarcodeFormat format,int multiple,
                           Map<EncodeHintType,?> hints) throws WriterException {
 
@@ -60,12 +60,15 @@ public final class QuantumQRCodeWriter {
     }
 
     QRCode code = Encoder.encode(contents, errorCorrectionLevel, hints);
-    return renderResult(code, multiple);
+    QRCodeBitMatrix result = renderResult(code, multiple);
+    result.setQrCode(code);
+    return result;
   }
 
   // Note that the input matrix uses 0 == white, 1 == black, while the output matrix uses
   // 0 == black, 255 == white (i.e. an 8 bit greyscale bitmap).
-  private static BitMatrix renderResult(QRCode code,int multiple) {
+  private static QRCodeBitMatrix renderResult(QRCode code,int multiple) {
+	  QRCodeBitMatrix result = new QRCodeBitMatrix();
     ByteMatrix input = code.getMatrix();
     if (input == null) {
       throw new IllegalStateException();
@@ -102,7 +105,8 @@ public final class QuantumQRCodeWriter {
         }
       }
     }
-    return output;
+    result.setBitMatrix(output);
+    return result;
   }
 
 }
